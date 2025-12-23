@@ -13,7 +13,7 @@ import Busy from "./components/Busy";
 
 function App() {
   return (
-    <Router>
+    <Router basename="/design">
       <Navbar />
       
       <Routes>
