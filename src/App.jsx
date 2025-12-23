@@ -18,12 +18,12 @@ function App() {
       <Navbar />
       
       <Routes>
-        <Link to="/">Home</Link>
-      <Link to="/product">Product</Link>
-      <Link to="/design">Design</Link>
-      <Link to="/about">About</Link>
-      <Link to="/t4sg">T4SG</Link>
-      <Link to="/busyb">BusyB</Link>
+       <Route path="/" element={<Home />} />
+  <Route path="/product" element={<Product />} />
+  <Route path="/design" element={<Design />} />
+  <Route path="/about" element={<About />} />
+  <Route path="/t4sg" element={<T4SG />} />
+  <Route path="/busyb" element={<Busy />} />
       </Routes>
 
       <Footer />
