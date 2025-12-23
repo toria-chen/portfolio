@@ -1,5 +1,6 @@
 import "./App.css";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -13,16 +14,16 @@ import Busy from "./components/Busy";
 
 function App() {
   return (
-    <Router basename="/design">
+    <Router>
       <Navbar />
       
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/product" element={<Product />} />
-        <Route path="/design" element={<Design />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/t4sg" element={<T4SG />} />
-        <Route path="/busyb" element={<Busy />} />
+        <Link to="/">Home</Link>
+      <Link to="/product">Product</Link>
+      <Link to="/design">Design</Link>
+      <Link to="/about">About</Link>
+      <Link to="/t4sg">T4SG</Link>
+      <Link to="/busyb">BusyB</Link>
       </Routes>
 
       <Footer />

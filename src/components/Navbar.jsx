@@ -1,4 +1,5 @@
 import logo from "../assets/vclogo2.png";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 
 function Navbar() {
@@ -8,14 +9,14 @@ function Navbar() {
     <nav className="navbar">
   <div className="navbar-row">
     <div className="logo">
-      <a href="/"><img src={logo} alt="Logo" /></a>
+      <Link to="/"><img src={logo} alt="Logo" /></Link>
     </div>
 
     <ul className="nav-links">
-      <li><a href="/">Home</a></li>
-      <li><a href="/product">Product</a></li>
-      <li><a href="/design">Design</a></li>
-      <li><a href="/about">About</a></li>
+      <li><Link to="/">Home</Link></li>
+      <li><Link to="/product">Product</Link></li>
+      <li><Link to="/design">Design</Link></li>
+      <li><Link to="/about">About</Link></li>
     </ul>
 
     <button
@@ -31,10 +32,10 @@ function Navbar() {
 
   {open && (
     <ul className="mobile-menu">
-      <li><a href="/">Home</a></li>
-      <li><a href="/product">Product</a></li>
-      <li><a href="/design">Design</a></li>
-      <li><a href="/about">About</a></li>
+      <li><Link to="/">Home</Link></li>
+      <li><Link to="/product">Product</Link></li>
+      <li><Link to="/design">Design</Link></li>
+      <li><Link to="/about">About</Link></li>
     </ul>
   )}
 </nav>

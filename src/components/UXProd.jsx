@@ -1,6 +1,7 @@
 import mision from "../assets/7.png";
 import goodnotes from "../assets/6.png";
 import busyb from "../assets/5.png";
+import { Link } from "react-router-dom";
 
 function UXProd() {
   return (
@@ -9,14 +10,14 @@ function UXProd() {
             <h2>A collection of <span className="colorchange">UX, product, and web dev projects.</span></h2>
                 <div className="skill-card-container">
                     <div className="skill-card">
-                        <a href="/busyb"><img src={busyb} alt="Busyb" className="projects-bb" /></a>
+                        <Link to="/busyb"><img src={busyb} alt="Busyb" className="projects-bb" /></Link>
                         <h3><span className="highlight">busy.b: A plant-themed productivity web app</span><br></br>
                            ✦ Flask + HTML/CSS
                            </h3>
                     </div>
 
                     <div className="skill-card">
-                        <a href="/t4sg"><img src={mision} alt="Mision Multiplica" className="projects-mm" /></a>
+                        <Link to="/t4sg"><img src={mision} alt="Mision Multiplica" className="projects-mm" /></Link>
                         <h3><span className="highlight">Harvard Tech 4 Social Good x Misión Multiplica:</span><br></br>
                             ✦ Figma (low and high-fidelity prototypes)
                             </h3>

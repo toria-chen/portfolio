@@ -4,6 +4,7 @@ import busyb from "../assets/5.png";
 import flowers from '../assets/flowers.GIF';
 
 import React from "react";
+import { Link } from "react-router-dom";
 
 import bw from "../assets/bw.PNG";
 import dash from "../assets/dash.PNG";
@@ -41,11 +42,11 @@ function Projects() {
             <section className="skills-section">
                 <div className="skill-card-container">
                     <div className="skill-card">
-                        <a href="/busyb"><img src={busyb} alt="Busyb" className="projects-bb" /></a>
+                        <Link to="/busyb"><img src={busyb} alt="Busyb" className="projects-bb" /></Link>
                     </div>
 
                     <div className="skill-card">
-                        <a href="/t4sg"><img src={mision} alt="Mision Multiplica" className="projects-mm" /></a>
+                        <Link to="/t4sg"><img src={mision} alt="Mision Multiplica" className="projects-mm" /></Link>
                     </div>
 
                     <div className="skill-card">
