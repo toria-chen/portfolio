@@ -17,8 +17,8 @@ import news from "../assets/news.png"
 
 import cover1 from "../assets/cover1.png";
 import cover2 from "../assets/cover2.png";
-import cover3 from "../assets/cover3.png";
-import cover4 from "../assets/cover4.png";
+import cover3 from "../assets/cover3.jpg";
+import cover4 from "../assets/cover4.jpg";
 import cover5 from "../assets/cover5.png";
 import cover6 from "../assets/cover6.png";
 import cover7 from "../assets/cover7.png";

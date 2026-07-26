@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useState } from 'react';
-import me from '../assets/me.png';
+import me from '../assets/me.jpg';
 
 // images for playground //
 import playground from '../assets/playground.svg';
