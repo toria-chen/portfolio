@@ -1,91 +1,77 @@
-import mision from "../assets/7.png";
-import goodnotes from "../assets/6.png";
-import busyb from "../assets/5.png";
-import flowers from '../assets/flowers.GIF';
+import { Link } from 'react-router-dom';
+import one from '../assets/1.png';
+import two from '../assets/2.png';
+import three from '../assets/3.png';
+import four from '../assets/4.png';
+import cases from "../assets/case studies.png"
+import visuals from "../assets/visuals.png"
 
-import React from "react";
-import { Link } from "react-router-dom";
-
-import bw from "../assets/bw.PNG";
-import dash from "../assets/dash.PNG";
-import dog from "../assets/dog.PNG";
-import donut from "../assets/donut.PNG";
-import fall from "../assets/fall.PNG";
-import flyby from "../assets/flyby.jpg";
-import friendship from "../assets/friendship.PNG";
-import hy from "../assets/hy.PNG";
-import kirk from "../assets/kirk.PNG";
-import polyamory from "../assets/polyamory.PNG";
-import selfie from "../assets/selfie.jpg";
-import songs from "../assets/songs.PNG";
-
-import bear from "../assets/bear.PNG";
-import bf from "../assets/bf.PNG";
-import bird from "../assets/bird.PNG";
-import scifi from "../assets/scifi.PNG";
-import sri from "../assets/SRI.svg";
-import coop from "../assets/coop.PNG";
-import grabbit from "../assets/grabbit.PNG";
-import grabbit2 from "../assets/grabbit2.PNG";
-import ignited from "../assets/ignited.PNG";
-import openbio from "../assets/openbio.PNG";
-import ym1 from "../assets/ym1.PNG";
-import ym2 from "../assets/ym2.PNG";
-
-const images = [bw, dash, dog, donut, fall, flyby, friendship, hy, kirk, polyamory, selfie, songs];
-const images2 = [sri, coop, grabbit, grabbit2, ignited, openbio, bear, bf, bird, scifi, ym1, ym2];
+const skillColumns = [
+  {
+    img: one,
+    label: "Ideation",
+    description: "Imagination is my superpower, bringing together years of psychology research experience with my love for understanding people's stories."
+  },
+  {
+    img: two,
+    label: "Storytelling",
+    description: "Writing for The Harvard Crimson (and loads of fanfiction!) has led me to treat design as an immersive conversation between the user and the platform."
+  },
+  {
+    img: three,
+    label: "Prototyping",
+    description: "I'm (in)famous for churning out full Figma prototypes in hours, not days — speed that comes not from cutting corners, but from genuine passion for my work."
+  },
+  {
+    img: four,
+    label: "Visualization",
+    description: "My love of traditional and digital illustration means art isn't just a finishing touch, but part of the design process itself (all artwork on this site is self-drawn!)."
+  },
+];
 
 function Projects() {
   return (
-    <section className="skills-section">
-        <h2><a href="/design">UX + Product</a></h2>
-            <section className="skills-section">
-                <div className="skill-card-container">
-                    <div className="skill-card">
-                        <Link to="/busyb"><img src={busyb} alt="Busyb" className="projects-bb" /></Link>
-                    </div>
+    <>
+      <section className="skills-section">
+        <h2>My Process</h2>
 
-                    <div className="skill-card">
-                        <Link to="/t4sg"><img src={mision} alt="Mision Multiplica" className="projects-mm" /></Link>
-                    </div>
-
-                    <div className="skill-card">
-                        <img src={goodnotes} alt="Goodnotes" className="projects-gn" />
-                    </div>
-
-                    <div className="skill-card">
-                        <img src={flowers} alt="Flowers" className="flowers-gn" />
-                        <h3>Skills + Tools<br></br>
-                        HTML | CSS | Flask | Python | JavaScript | Figma</h3>
-                    </div>
-                </div>
-            </section>
-
-       <h2><a href="/design">Design + Digital Illustration</a></h2>
-        <h3>✦ The Harvard Crimson Design Portfolio</h3>
-        <section className="image-marquee">
-        <div className="marquee__track">
-          {images.map((img, i) => (
-            <img key={i} src={img} alt={`Project ${i}`} />
+        <section className="skills-table">
+          {skillColumns.map((col, i) => (
+            <div className="skills-table-col" key={i}>
+              <img src={col.img} alt={col.label} className="skills-table-img" />
+              <p className="skills-table-label">{col.label}</p>
+              <p className="skills-table-description">{col.description}</p>
+            </div>
           ))}
-          {images.map((img, i) => (
-            <img key={i + images.length} src={img} alt={`Project ${i}`} />
-          ))}
+        </section>
+
+        <div className="process-cta-stack">
+  <div className="cta-row">
+    <img src={cases} alt="Case studies preview" className="cta-collage-img" />
+    <Link to="/product">
+      <button className="hero-button">Check out my case studies!</button>
+    </Link>
+  </div>
+
+  <div className="cta-row cta-row-reverse">
+    <Link to="/design">
+      <button className="hero-button">Explore my visual designs!</button>
+    </Link>
+    <img src={visuals} alt="Visual design preview" className="cta-collage-img" />
+  </div>
+</div>
+
+      <section className="marquee-section">
+        <div className="marquee">
+          <div className="marquee__track">
+            {["Adobe Suite", "Figma", "React", "Psych Research", "Figjam", "shadcn/ui", "HTML/CSS", "Wireframing", "AI/ML", "Prototyping", "User Research", "Notion", "Flask", "JavaScript", "Python", "SQL"]
+              .concat(["Adobe Suite", "Figma", "React", "Psych Research", "Figjam", "shadcn/ui", "HTML/CSS", "Wireframing", "AI/ML", "Prototyping", "User Research", "Notion", "Flask", "JavaScript", "Python", "SQL"])
+              .map((skill, i) => <span key={i}>{skill}</span>)}
+          </div>
         </div>
-    </section>
-
-    <h3>✦ Branding, Media, and Promotional Work</h3>
-    <section className="image-marquee">
-        <div className="marquee__track">
-          {images2.map((img, i) => (
-            <img key={i} src={img} alt={`Project ${i}`} />
-          ))}
-          {images2.map((img, i) => (
-            <img key={i + images.length} src={img} alt={`Project ${i}`} />
-          ))}
-        </div>
-    </section>
-    </section>
+      </section>
+      </section>
+    </>
   );
 }
 

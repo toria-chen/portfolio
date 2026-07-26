@@ -1,44 +1,56 @@
 import logo from "../assets/vclogo2.png";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function Navbar() {
   const [open, setOpen] = useState(false);
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 900 && open) {
+        setOpen(false);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [open]);
+
   return (
     <nav className="navbar">
-  <div className="navbar-row">
-    <div className="logo">
-      <Link to="/"><img src={logo} alt="Logo" /></Link>
-    </div>
+      <div className="navbar-row">
+        <div className="logo">
+          <Link to="/"><img src={logo} alt="Logo" /></Link>
+        </div>
 
-    <ul className="nav-links">
-      <li><Link to="/">Home</Link></li>
-      <li><Link to="/product">Product</Link></li>
-      <li><Link to="/design">Design</Link></li>
-      <li><Link to="/about">About</Link></li>
-    </ul>
+        <ul className="nav-links">
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/product">Case Studies</Link></li>
+          <li><Link to="/design">Visual Design</Link></li>
+          <li><Link to="/about">About</Link></li>
+        </ul>
 
-    <button
-      className="hamburger"
-      onClick={() => setOpen(!open)}
-      aria-label="Toggle navigation"
-    >
-      <span />
-      <span />
-      <span />
-    </button>
-  </div>
+        <button
+          className="hamburger"
+          onClick={() => setOpen(!open)}
+          aria-label="Toggle navigation"
+          aria-expanded={open}
+        >
+          <span />
+          <span />
+          <span />
+        </button>
+      </div>
 
-  {open && (
-    <ul className="mobile-menu">
-      <li><Link to="/">Home</Link></li>
-      <li><Link to="/product">Product</Link></li>
-      <li><Link to="/design">Design</Link></li>
-      <li><Link to="/about">About</Link></li>
-    </ul>
-  )}
-</nav>
+      {open && (
+        <ul className="mobile-menu">
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/product">Case Studies</Link></li>
+          <li><Link to="/design">Visual Design</Link></li>
+          <li><Link to="/about">About</Link></li>
+        </ul>
+      )}
+    </nav>
   );
 }
 
