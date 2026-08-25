@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import ecovante from "../assets/ecovante.png";
+import ecovante from "../assets/ecovante.webp";
 
 function Ecovante() {
   return (

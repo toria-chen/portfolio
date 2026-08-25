@@ -5,7 +5,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
 import Home from "./pages/Home";
-import Product from "./pages/Product";
+import CaseStudies from "./pages/CaseStudies";
 import Design from "./pages/Design";
 import About from "./pages/About";
 import RFCX from "./pages/RFCX";
@@ -22,7 +22,7 @@ function App() {
       
       <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/product" element={<Product />} />
+      <Route path="/casestudies" element={<CaseStudies />} />
       <Route path="/design" element={<Design />} />
       <Route path="/about" element={<About />} />
       <Route path="/rfcx" element={<RFCX />} />

@@ -4,16 +4,16 @@ import me from '../assets/me.jpg';
 
 // images for playground //
 import playground from '../assets/playground.svg';
-import hobbies from '../assets/hobbies.png';
-import recs from '../assets/recs.png';
-import sideq from '../assets/sideq.png';
-import figma from '../assets/figma.png';
-import dev from  '../assets/dev.png';
-import claude from '../assets/claude.png';
-import google from '../assets/google.png';
-import adobe from '../assets/adobe.png';
-import fresco from '../assets/fresco.png';
-import r from '../assets/r.png';
+import hobbies from '../assets/hobbies.webp';
+import recs from '../assets/recs.webp';
+import sideq from '../assets/sideq.webp';
+import figma from '../assets/figma.webp';
+import dev from  '../assets/dev.webp';
+import claude from '../assets/claude.webp';
+import google from '../assets/google.webp';
+import adobe from '../assets/adobe.webp';
+import fresco from '../assets/fresco.webp';
+import r from '../assets/r.webp';
 
 function About() {
 
@@ -134,10 +134,16 @@ const goPrev = () => setActiveIndex((prev) => (prev - 1 + tools.length) % tools.
           <span>↓</span>
           <span>↓</span>
         </div>
-        <section className="skills-section">
-         <h2><span className="colorchange">You Made It! Now, the Fun Part!</span></h2>
-         <h3>Hover and click around the interactive illustration below to explore my skills, hobbies, favorite books, and more!</h3>
-        </section>
+        <br></br>
+      
+        <div className="photo-header-row">
+          <h2><span className="colorchange">You Made It! Now, the Fun Part!</span></h2>
+        </div>
+            <div className="photo-stats">
+            <div className="photo-stat">
+              <p className="stat-number">Hover and click around the interactive illustration below to explore my skills, hobbies, favorite books, and more!</p>
+            </div>
+            </div>
 
       <section className="playground-banner">
             <img src={playground} alt="About Me Playground" className="playground-img" />

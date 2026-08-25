@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import insta from "../assets/instagram.png";
-import gmail from "../assets/gmail.png";
-import linkedin from "../assets/linkedin.png";
-import git from "../assets/github.png";
-import bobabear from "../assets/bobabear.png";
+import insta from "../assets/instagram.webp";
+import gmail from "../assets/gmail.webp";
+import linkedin from "../assets/linkedin.webp";
+import git from "../assets/github.webp";
+import bobabear from "../assets/bobabear.webp";
 import galaxycat from "../assets/galaxycat.png";
 import mushy from "../assets/mushy.png";
 import veripaws from "../assets/veripaws.png";
@@ -50,7 +50,7 @@ function Footer() {
           <img src={veripaws} alt="" className="footer-sticker sticker-4" />
 
         <div className="footer-col">
-          <Link to="/product">Case Studies</Link>
+          <Link to="/casestudies">Case Studies</Link>
           <Link to="/design">Visual Design</Link>
           <Link to="/about">About</Link>
         </div>

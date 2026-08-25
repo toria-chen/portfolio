@@ -1,22 +1,22 @@
 import { Link } from "react-router-dom";
-import userflow from "../assets/userflow.png";
-import lofis from "../assets/lofis.png";
-import rainf from "../assets/rainf.png";
-import compersona from "../assets/compersona.png";
-import navbar from "../assets/navbar.png"
-import hifi1 from "../assets/hifi1.png"
-import hifi2 from "../assets/hifi2.png"
-import hifi3 from "../assets/hifi3.png"
-import prez from "../assets/prez.png"
-import accessible from "../assets/accessible.png"
+import userflow from "../assets/userflow.webp";
+import lofis from "../assets/lofis.webp";
+import rainf from "../assets/rainf.webp";
+import compersona from "../assets/compersona.webp";
+import navbar from "../assets/navbar.webp"
+import hifi1 from "../assets/hifi1.webp"
+import hifi2 from "../assets/hifi2.webp"
+import hifi3 from "../assets/hifi3.webp"
+import prez from "../assets/prez.webp"
+import accessible from "../assets/accessible.webp"
 
 const processStages = [
-  { label: "I. Education", items: ["Onboard New Designers", "Introduction to Figma", "Project Overview"] },
-  { label: "II. Research", items: ["Competitor Research", "Problem Statement", "User Interviews"] },
-  { label: "III. Ideation", items: ["User Flow", "Design system", "Information Architecture"] },
-  { label: "IV. Design", items: ["Wireframes", "Mid-fidelity Prototypes", "Interaction Design"] },
-  { label: "V. Feedback", items: ["Midpoint Presentation", "Usability Testing", "Priority Analysis"] },
-  { label: "VI. Handoff", items: ["Post-midpoint Revisions", "Interaction Redesign", "Final Client Presentation"] },
+  { label: "I. Education", id: "education", items: ["Onboard New Designers", "Introduction to Figma", "Project Overview"] },
+  { label: "II. Research", id: "research", items: ["Competitor Research", "Problem Statement", "User Interviews"] },
+  { label: "III. Ideation", id: "ideation", items: ["User Flow", "Design system", "Information Architecture"] },
+  { label: "IV. Design", id: "design", items: ["Wireframes", "Mid-fidelity Prototypes", "Interaction Design"] },
+  { label: "V. Feedback", id: "feedback", items: ["Midpoint Presentation", "Usability Testing", "Priority Analysis"] },
+  { label: "VI. Handoff", id: "handoff", items: ["Post-midpoint Revisions", "Interaction Redesign", "Final Client Presentation"] },
 ];
 
 const painSolutionPairs = [
@@ -115,7 +115,7 @@ function Rainforest() {
           <div className="case-mini-stats">
             <div className="case-mini-stat">
               <p className="mini-stat-label">MY ROLE</p>
-              <p className="mini-stat-value">Senior UX Designer<br></br>UX Education Presenter</p>
+              <p className="mini-stat-value">UX Design Lead<br></br>UX Education Presenter</p>
             </div>
             <div className="case-mini-stat">
               <p className="mini-stat-label">END PRODUCT</p>
@@ -127,29 +127,37 @@ function Rainforest() {
 
       {/* PROCESS TRACKER */}
       <section className="case-process">
-        <h2 className="case-section-heading">Objective + Process</h2>
+        <h2 className="case-section-heading" id="education"> Objective + Process</h2>
           <p>
             The previous app lacked login or onboarding flows, leaving users with <span className="bold">no sense of continuity</span> across sessions. 
             Our goal was to give the app a <span className="colorchangebold">community-centric identity</span> distinct from the website, emphasizing Rainforest 
             Connection's <span className="bold">sound library</span> while introducing new ways for users to engage.
           </p>
         <div className="process-stage-row">
-          {processStages.map((stage, i) => (
-            <div className="process-stage-box" key={i}>
-              <p className="process-stage-label">{stage.label}</p>
-              <ul className="process-stage-list">
-                {stage.items.map((item, j) => (
-                  <li key={j}>{item}</li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
+  {processStages.map((stage, i) => (
+    
+      <a href={`#${stage.id}`}
+      className="process-stage-box"
+      key={i}
+      onClick={(e) => {
+        e.preventDefault();
+        document.getElementById(stage.id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }}
+    >
+      <p className="process-stage-label">{stage.label}</p>
+      <ul className="process-stage-list">
+        {stage.items.map((item, j) => (
+          <li key={j}>{item}</li>
+        ))}
+      </ul>
+    </a>
+  ))}
+</div>
       </section>
 
       {/* RESEARCH & AFFINITY MAPPING */}
       <section className="case-section-block">
-        <h2 className="case-section-heading">Research</h2>
+        <h2 className="case-section-heading" id="research"> Research</h2>
         <img src={compersona} alt="User Personas and Competitive Analysis" className="case-block-img" />
         <p>
           Following the designers' onboarding and introduction to Figma, we conducted <span className="bold">user interviews</span> with administrators to identify their goals for the redesigned app.
@@ -161,7 +169,7 @@ function Rainforest() {
 
       {/* PROTOTYPING */}
       <section className="case-section-block">
-        <h2 className="case-section-heading">Ideation</h2>
+        <h2 className="case-section-heading" id="ideation"> Ideation</h2>
         <img src={userflow} alt="Design System + User Flow" className="case-block-img" />
         <p>
           As the senior designer, I created a <span className="bold">uniform design system</span> and consolidated our research into a <span className="colorchangebold">new user flow and 
@@ -180,7 +188,7 @@ function Rainforest() {
       </section>
 
       <section className="case-section-block">
-        <h2 className="case-section-heading">Design</h2>
+        <h2 className="case-section-heading" id="design"> Design</h2>
         <img src={lofis} alt="Low-Fidelity Sketches" className="case-block-img" />
         <p>
            I supported my designers through the phase of wireframe sketches and <span className="bold">low-fidelity designs</span> (credit for the lofis above goes to <a href="https://www.linkedin.com/in/margaretslee/" target="_blank" rel="noopener noreferrer"> Margaret Lee</a> and
@@ -211,7 +219,7 @@ function Rainforest() {
 
       {/* FINAL DESIGN */}
       <section className="case-section-block">
-        <h2 className="case-section-heading">Feedback to Hi-Fis</h2>
+        <h2 className="case-section-heading" id="feedback"> Feedback to Hi-Fis</h2>
          <p>
           Following our <span className="colorchangebold">midpoint client presentation</span>, in which we presented our <span className="bold">user research, information architecture, and mid-fidelity
           prototypes</span>, we received several items of <span className="bold">feedback</span> from our administrative point person, the CTO, and the CMO. 
@@ -234,7 +242,7 @@ function Rainforest() {
         <img src={prez} alt="Final Presentation" className="case-overview-img" />
 
         <div className="case-overview-text">
-          <h2 className="case-section-heading">Final Takeaways/Handoff</h2>
+          <h2 className="case-section-heading" id="handoff"> Final Takeaways/Handoff</h2>
           <p>
           Our final product covered a <span className="bold">variety of challenges</span> in a clear, elegant way - from the personalized onboarding flow to the user-friendly podcasts and marketplace, the technologically-inspired sound library to the clear mission statement and values.
           </p><p><br></br>Before handoff, we presented our work to the founder of Rainforest Connection, <span className="bold">Topher White</span>, and received enthusiastic feedback about the <span className="colorchangebold">level of detail and care</span> we put into the project. Following our semester-long work, the project is now with
@@ -261,7 +269,7 @@ function Rainforest() {
       </section>
 
       <div className="case-back-link">
-        <Link to="/product" className="project-cta">← Back to all projects</Link>
+        <Link to="/casestudies" className="project-cta">← Back to all projects</Link>
       </div>
     </section>
     

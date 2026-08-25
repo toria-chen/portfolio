@@ -1,9 +1,9 @@
 import { useEffect, useState, useRef } from 'react';
-import one from '../assets/1.png';
-import two from '../assets/2.png';
-import three from '../assets/3.png';
-import four from '../assets/4.png';
-import headshot from '../assets/headshot.png';
+import one from '../assets/1.webp';
+import two from '../assets/2.webp';
+import three from '../assets/3.webp';
+import four from '../assets/4.webp';
+import headshot from '../assets/headshot.webp';
 import { Link } from 'react-router-dom';
 import busyb from "../assets/busyb.jpeg";
 import classbandit from "../assets/classbandit.png";
@@ -11,10 +11,35 @@ import rf from "../assets/rf.png";
 
 function ProjectsBento() {
   const projects = [
-    { img: rf, name: "Rainforest Connection App", description: "An app redesign for a biodiversity nonprofit, centered on an extensive rainforest sound library.", link: "/rfcx", size: "large" },
-    { img: classbandit, name: "ClassBandit (NYEdTech Hackathon First Place)", description: "A digital class pet tool helping K-6 educators to build community through social-emotional learning.", link: "/bandit", size: "medium" },
-    { img: busyb, name: "busy.b", description: "A plant-themed microproductivity tracker, built using Python, HTML/CSS, and SQLite3.", link: "https://github.com/toria-chen/busy.b/blob/main/README.md", external: true, size: "flat" }
-  ]
+  {
+    img: rf,
+    name: "Rainforest Connection",
+    designType: "End-to-End Mobile App",
+    industry: "Envirotech",
+    description: "An app redesign for a biodiversity nonprofit, centered on an extensive rainforest sound library.",
+    link: "/rfcx",
+    size: "large",
+  },
+  {
+    img: classbandit,
+    name: "ClassBandit",
+    designType: "Illustration + Branding",
+    industry: "EdTech",
+    description: "A digital class pet tool helping K-6 educators to build community through social-emotional learning.",
+    link: "/bandit",
+    size: "medium",
+  },
+  {
+    img: busyb,
+    name: "busy.b",
+    designType: "Full-Stack Build",
+    industry: "Productivity",
+    description: "A plant-themed microproductivity tracker, built using Python, HTML/CSS, and SQLite3.",
+    link: "https://github.com/toria-chen/busy.b/blob/main/README.md",
+    external: true,
+    size: "flat",
+  },
+];
 
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
@@ -35,13 +60,22 @@ function ProjectsBento() {
             onMouseLeave={() => setHoveredIndex(null)}
           >
             <div className="bento-tile-inner">
-              <img src={project.img} alt={project.name} className="bento-img" />
-              <div className="bento-overlay">
-                <p className="bento-name">{project.name}</p>
-                <p className="bento-description">{project.description}</p>
-                <span className="bento-readmore">Read more →</span>
-              </div>
-            </div>
+  <div className="bento-img-wrap">
+    <img src={project.img} alt={project.name} className="bento-img" />
+    <div className="bento-overlay">
+      <p className="bento-description">{project.description}</p>
+      <span className="bento-readmore">Read more →</span>
+    </div>
+  </div>
+
+  <div className="bento-info-bar">
+  <span className="bento-name-text">{project.name}</span>
+  <div className="bento-badges">
+    <span className="bento-badge">{project.designType}</span>
+    <span className="bento-badge">{project.industry}</span>
+  </div>
+</div>
+</div>
           </TileWrapper>
         );
       })}
@@ -82,13 +116,16 @@ function Hero() {
               <img src={headshot} alt="Victoria Chen" className="headshot" />
               <div className="headshot-credentials">
                 <p className="name-line"><span className="squiggle">Victoria Chen</span></p>
-                <p className="credentials-line">Digital Designer ✧ Harvard '28, Psychology + Statistics</p>
+                <p className="credentials-line">Product Design ✧ Harvard '28</p>
+                <div className="status-pill">
+                <span className="status-dot"></span>
+                Seeking Summer '27 Internships!
+                </div>
               </div>
             </div>
 
             <h2>
-              Hi! I'm a <span className="colorchange">storyteller-designer</span> bringing
-              ideas to life through rapid prototyping, meaningful visuals, and a passion for psychology-driven design.
+              Hi! I'm a <span className="colorchangebold">psychology-driven designer</span> rewriting stories into whimsical experiences that keep people <span className="new">coming back for more</span>.
             </h2>
 
             <div className="hero-buttons">
@@ -112,7 +149,7 @@ function Hero() {
           {/* projects */}
           <div className="hero-card projects-card">
             <ProjectsBento />
-            <Link to="/product" className="see-all-link-top">Explore all projects →</Link>
+            <Link to="/casestudies" className="see-all-link-top">Explore all case studies →</Link>
           </div>
 
           </div>
@@ -128,12 +165,6 @@ function Hero() {
               strokeWidth="4"
             />
           </svg>
-        </div>
-
-        <div className="down-arrows">
-          <span>↓</span>
-          <span>↓</span>
-          <span>↓</span>
         </div>
       </section>
     </>

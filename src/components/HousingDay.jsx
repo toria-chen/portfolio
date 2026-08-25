@@ -1,19 +1,19 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from 'react';
-import newspages from "../assets/newspages.png";
+import newspages from "../assets/newspages.webp";
 import east from "../assets/east.jpg";
 import west from "../assets/west.jpg";
 import central from "../assets/central.jpg";
 import quad from "../assets/quad.jpg";
-import postcards from "../assets/postcards.png";
+import postcards from "../assets/postcards.webp";
 import flyby from "../assets/flyby.jpg";
-import house26 from "../assets/house26.png";
-import quadd from "../assets/quadd.png"
-import riverc from "../assets/riverc.png"
-import riverw from "../assets/riverw.png"
-import rivere from "../assets/rivere.png"
-import trading from "../assets/trading.png"
-import news from "../assets/news.png"
+import house26 from "../assets/house26.webp";
+import quadd from "../assets/quadd.webp"
+import riverc from "../assets/riverc.webp"
+import riverw from "../assets/riverw.webp"
+import rivere from "../assets/rivere.webp"
+import trading from "../assets/trading.webp"
+import news from "../assets/news.webp"
 
 import cover1 from "../assets/cover1.jpg";
 import cover2 from "../assets/cover2.jpg";

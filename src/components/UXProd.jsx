@@ -1,16 +1,16 @@
 import { Link } from "react-router-dom";
-import busyb from "../assets/busyb.png";
-import rippl from "../assets/rippl.png";
-import rainf from "../assets/rainf.png";
-import snippet from "../assets/snippet.png";
-import classb from "../assets/classb.png";
-import ecovante from "../assets/ecovante.png";
-import brightstone from "../assets/brightstone.png";
-import mision from "../assets/mision.png";
+import busyb from "../assets/busyb.webp";
+import rippl from "../assets/rippl.webp";
+import rainf from "../assets/rainf.webp";
+import snippet from "../assets/snippet.webp";
+import classb from "../assets/classb.webp";
+import ecovante from "../assets/ecovante.webp";
+import brightstone from "../assets/brightstone.webp";
+import mision from "../assets/mision.webp";
 
-import think from "../assets/think.png";
-import stand from "../assets/stand.png";
-import walk from "../assets/walk.png";
+import think from "../assets/think.webp";
+import stand from "../assets/stand.webp";
+import walk from "../assets/walk.webp";
 
 const projects = [
 {
@@ -37,26 +37,6 @@ const projects = [
     img: ecovante,
     link: "/eco",
     linkLabel: "Case Study Coming Soon →",
-  },
-  {
-    category: "Mobile Application (Hackathon)",
-    title: "Snippet",
-    tags: ["Figma", "Product Design", "Rapid Prototyping", "Branding", "UI/UX"],
-    description: "Social media meets memory album in this collaborative scrapbooking app. Users can save photos, text snippets, and more to group chat-specific scrapbooks, synced to your messaging app of choice.",
-    img: snippet,
-    link: "https://devpost.com/software/snippet-wsz0fh",
-    linkLabel: "View on Devpost →",
-    external: true,
-  },
-  {
-    category: "Web App",
-    title: "busy.b",
-    tags: ["Flask", "HTML/CSS", "Gamification", "Prototyping", "Github"],
-    description: "Programmed, designed, and illustrated assets for a plant-themed microproductivity tracker, emphasizing whimsical visuals and a simple interface for entering and tracking goals.",
-    img: busyb,
-    link: " https://github.com/toria-chen/busy.b/blob/main/README.md",
-    linkLabel: "View on GitHub →",
-    external: true,
   },
 ];
 
@@ -95,47 +75,57 @@ function ProjectRow({ project }) {
 
 const miniProjects = [
   {
-    category: "ADMINISTRATIVE WEB PORTAL",
-    name: "Misión Multiplica",
-    demoLink: "https://drive.google.com/file/d/1pXkLrrgcr4z-F-7pbp_E4t5IHUIWEYOU/view?usp=sharing",
-    img: mision,
-    text: "Designed a user-friendly administrative portal for a Chilean donor-matching nonprofit to define, input, and save criteria for subsequent donor applications.",
+    category: "WEB APPLICATION",
+    title: "busy.b",
+    linkLabel: null,
+    image: busyb,
+    tags: ["Flask", "HTML/CSS", "Gamification", "Prototyping"],
+    description: "Programmed and illustrated assets for a plant-themed productivity tracker, emphasizing whimsical visuals and a simple goal-tracking interface.",
+    buttonLabel: "View on GitHub",
+    buttonLink: "https://github.com/toria-chen/busy.b/blob/main/README.md",
   },
   {
     category: "MOBILE APPLICATION (HACKATHON)",
-    name: "Drop",
-    img: rippl,
-    text: "A campus connection app tackling loneliness, Drop matches students to weekly kindness challenges, like grabbing coffee or exploring a new club event.",
+    title: "Snippet",
+    linkLabel: null,
+    image: snippet,
+    tags: ["React Native", "UI/UX", "Hackathon"],
+    description: "Social media meets memory album—users can save photos, text snippets, and more to collaborative digital scrapbooks, synced to your group chats.",
+    buttonLabel: "View on Devpost",
+    buttonLink: "https://devpost.com/software/snippet-wsz0fh",
   },
   {
-    category: "WEBSITE REDESIGN",
-    name: "Brightstone",
-    img: brightstone,
-    text: "Full website redesign and online shop design for Brightstone, a residential community providing work opportunities for adults with disabilities.",
+    category: "ADMINISTRATIVE WEB PORTAL",
+    title: "Misión Multiplica",
+    linkLabel: null,
+    image: mision,
+    tags: ["Figma", "UX Research", "Nonprofit"],
+    description: "Designed a user-friendly administrative portal for a Chilean donor-matching nonprofit to define, input, and save criteria for subsequent donor applications.",
+    buttonLabel: "Watch Demo Here",
+    buttonLink: "https://drive.google.com/file/d/1pXkLrrgcr4z-F-7pbp_E4t5IHUIWEYOU/view?usp=drive_link",
   },
 ];
-
 function MiniSection({ items }) {
   return (
     <div className="mini-grid">
       {items.map((item, i) => (
         <div className="mini-column" key={i}>
           <p className="mini-category">{item.category}</p>
-          <h3 className="mini-name">
-            {item.name}{' '}
-            {item.demoLink && ( <a
-              
-                href={item.demoLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-link"
-              >
-                (Demo link)
-              </a>
-            )}
-          </h3>
-          <img src={item.img} alt={item.name} className="mini-img" />
-          <p className="mini-text">{item.text}</p>
+          <h3 className="mini-name">{item.title}</h3>
+
+          <img src={item.image} alt={item.title} className="mini-img" />
+
+          <div className="mini-project-tags">
+            {item.tags.map((tag, j) => (
+              <span className="mini-tag" key={j}>{tag}</span>
+            ))}
+          </div>
+
+          <p className="mini-text">{item.description}</p>
+
+          <a href={item.buttonLink} target="_blank" rel="noopener noreferrer">
+            <button className="mini-project-button">{item.buttonLabel} →</button>
+          </a>
         </div>
       ))}
     </div>

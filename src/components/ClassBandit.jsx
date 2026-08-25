@@ -1,20 +1,20 @@
 import { Link } from "react-router-dom";
-import data from "../assets/data.png";
-import levels from "../assets/levels.png";
-import classb from "../assets/classb.png";
-import jam from "../assets/jam.png";
-import pets from "../assets/pets.png"
+import data from "../assets/data.webp";
+import levels from "../assets/levels.webp";
+import classb from "../assets/classb.webp";
+import jam from "../assets/jam.webp";
+import pets from "../assets/pets.webp"
 import demoVideo from '../assets/demo.mp4';
-import gallery from "../assets/gallery.png";
-import final from "../assets/final.png";
+import gallery from "../assets/gallery.webp";
+import final from "../assets/final.webp";
 
 const processStages = [
-  { label: "I. Ideation (Wk. 1)", items: ["Draft Project Concept", "Identify Pain Points", "Competitor Research"] },
-  { label: "II. Visualization", items: ["Illustration Drafts", "Character Design", "Style Exploration"] },
-  { label: "III. Research (Wk. 2)", items: ["Survey Educators", "Data Visualization", "CASEL Integration"] },
-  { label: "IV. Design (Wk. 3-4)", items: ["Figma Prototypes", "Information Architecture", "Visual Asset Integration"] },
-  { label: "V. Implementation", items: ["Illustration Revisions", "Character Animation", "Handoff to Engineer"] },
-  { label: "VI. Next Steps", items: ["Usability Testing", "Expanded Character Art", "Connected SEL Ecoystem"] },
+  { label: "I. Ideation (Wk. 1)", id: "ideation", items: ["Draft Project Concept", "Identify Pain Points", "Competitor Research"] },
+  { label: "II. Visualization", id: "visualization", items: ["Illustration Drafts", "Character Design", "Style Exploration"] },
+  { label: "III. Research (Wk. 2)", id: "research", items: ["Survey Educators", "Data Visualization", "CASEL Integration"] },
+  { label: "IV. Design (Wk. 3-4)", id: "design", items: ["Figma Prototypes", "Information Architecture", "Visual Asset Integration"] },
+  { label: "V. Implementation", id: "implementation", items: ["Illustration Revisions", "Character Animation", "Handoff to Engineer"] },
+  { label: "VI. Next Steps", id: "next steps", items: ["Usability Testing", "Expanded Character Art", "Connected SEL Ecoystem"] },
 ];
 
 const painSolutionPairs = [
@@ -124,28 +124,36 @@ function ClassBandit() {
 
       {/* PROCESS TRACKER */}
       <section className="case-process">
-        <h2 className="case-section-heading">Objective + Process</h2>
+        <h2 className="case-section-heading" id="ideation"> Objective + Process</h2>
           <p>91.7% of teachers agree that <span className="bold">classroom community is essential</span> — yet few tools exist to build it. 
             For our hackathon project, we reframed the classroom as a <span className="bold">shared ecosystem</span> through CASEL-aligned web app and an 
             <span className="colorchangebold"> engaging class pet character</span>, making accountability and learning a cooperative experience.
           </p>
         <div className="process-stage-row">
-          {processStages.map((stage, i) => (
-            <div className="process-stage-box" key={i}>
-              <p className="process-stage-label">{stage.label}</p>
-              <ul className="process-stage-list">
-                {stage.items.map((item, j) => (
-                  <li key={j}>{item}</li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
+  {processStages.map((stage, i) => (
+    
+      <a href={`#${stage.id}`}
+      className="process-stage-box"
+      key={i}
+      onClick={(e) => {
+        e.preventDefault();
+        document.getElementById(stage.id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }}
+    >
+      <p className="process-stage-label">{stage.label}</p>
+      <ul className="process-stage-list">
+        {stage.items.map((item, j) => (
+          <li key={j}>{item}</li>
+        ))}
+      </ul>
+    </a>
+  ))}
+</div>
       </section>
 
       {/* RESEARCH & AFFINITY MAPPING */}
       <section className="case-section-block">
-        <h2 className="case-section-heading">Ideation to Visualization</h2>
+        <h2 className="case-section-heading" id="visualization"> Ideation to Visualization</h2>
         <img src={jam} alt="Initial Figjam Board" className="case-block-img" />
         <p>
           We began by brainstorming <span className="bold">characters and interactions</span> that our digital pet would encounter during day-to-day classroom activities. For the default "mascot" of the app, 
@@ -169,7 +177,7 @@ function ClassBandit() {
 
       {/* PROTOTYPING */}
       <section className="case-section-block">
-        <h2 className="case-section-heading">Research To User Flow</h2>
+        <h2 className="case-section-heading" id="research"> Research To User Flow</h2>
         <img src={data} alt="Survey Results, Initial User Flow" className="case-block-img" />
         <p>
          Our UX researcher surveyed <span className="bold">12 K-6 educators</span> and found that managing student conflict, and promoting an <span className="colorchangebold">empathetic classroom community</span> were the 
@@ -180,7 +188,7 @@ function ClassBandit() {
       </section>
 
       <section className="case-section-block">
-        <h2 className="case-section-heading">Design</h2>
+        <h2 className="case-section-heading" id="design"> Design</h2>
         <img src={levels} alt="Design and Onboarding Flow" className="case-block-img" />
         <p>
           Synchronously with the design process, I continued to <span className="bold">illustrate graphics</span> of Bandit, other characters, and accessories that matched the product's visual identity.
@@ -202,7 +210,7 @@ function ClassBandit() {
 
       {/* FINAL DESIGN */}
       <section className="case-section-block">
-        <h2 className="case-section-heading">Final Product + Presentation</h2>
+        <h2 className="case-section-heading" id="implementation"> Final Product + Presentation</h2>
          <p>
           After a month of working with our hackathon teams, it was time for the <span className="colorchangebold">final submission and presentation</span>. 
           Below is a demo video of our product (credit to <a href="https://www.linkedin.com/in/casey-n-monahan/" target="_blank" rel="noopener noreferrer"> Casey Monahan</a>), although we are currently in the process of making
@@ -231,7 +239,7 @@ function ClassBandit() {
       <section className="case-overview">
         <img src={final} alt="Finished Dashboard" className="case-overview-img" />
         <div className="case-overview-text">
-          <h2 className="case-section-heading">Next Steps</h2>
+          <h2 className="case-section-heading" id="next steps"> Next Steps</h2>
           <p>
           Since winning the hackathon, our team has been continuing to work asynchronously on ClassBandit, with the goal of gathering more <span className="bold">usability testing 
           data and market research.</span></p>

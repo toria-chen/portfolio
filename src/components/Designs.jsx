@@ -1,90 +1,91 @@
 import { createBrowserRouter, Link } from 'react-router-dom';
 import { useState } from 'react';
-import planey from "../assets/planey.png"
+import planey from "../assets/planey.webp"
 
-import bw from "../assets/bw.PNG";
-import dash from "../assets/dash.PNG";
-import dog from "../assets/dog.PNG";
-import donut from "../assets/donut.PNG";
-import fall from "../assets/fall.PNG";
+import bw from "../assets/bw.png";
+import dash from "../assets/dash.png";
+import dog from "../assets/dog.png";
+import donut from "../assets/donut.png";
+import fall from "../assets/fall.png";
 import flyby from "../assets/flyby.jpg";
-import friendship from "../assets/friendship.PNG";
-import hy from "../assets/hy.PNG";
-import polyamory from "../assets/polyamory.PNG";
+import friendship from "../assets/friendship.png";
+import hy from "../assets/hy.png";
+import polyamory from "../assets/polyamory.png";
 import selfie from "../assets/selfie.jpg";
-import songs from "../assets/songs.PNG";
-import greek from "../assets/greek.png"
-import train from "../assets/train.png"
-import mailbox from "../assets/mailbox.png"
-import mario from "../assets/mario.png"
-import pov from "../assets/pov.png"
-import scroll from "../assets/scroll.png"
-import hands from "../assets/hands.png"
-import datamatch from "../assets/datamatch.png"
-import aaup from "../assets/aaup.png"
-import leader from "../assets/leader.png"
-import snow from "../assets/snow.png"
-import ai from "../assets/ai.png"
-import linked from "../assets/linked.png"
-import thirty from "../assets/30.png"
-import hold from "../assets/hold.png"
-import wgs from "../assets/wgs.png"
-import howto from "../assets/howto.png"
-import cabgarden from "../assets/cabgarden.png"
+import songs from "../assets/songs.png";
+import greek from "../assets/greek.webp"
+import train from "../assets/train.webp"
+import mailbox from "../assets/mailbox.webp"
+import mario from "../assets/mario.webp"
+import pov from "../assets/pov.webp"
+import scroll from "../assets/scroll.webp"
+import hands from "../assets/hands.webp"
+import datamatch from "../assets/datamatch.webp"
+import aaup from "../assets/aaup.webp"
+import leader from "../assets/leader.webp"
+import snow from "../assets/snow.webp"
+import ai from "../assets/ai.webp"
+import linked from "../assets/linked.webp"
+import thirty from "../assets/30.webp"
+import hold from "../assets/hold.webp"
+import wgs from "../assets/wgs.webp"
+import howto from "../assets/howto.webp"
+import cabgarden from "../assets/cabgarden.webp"
 import crim from "../assets/crim.jpg"
 
 import fm from "../assets/fm.jpg";
 import ecocacao from "../assets/ecocacao.jpg";
 import lds from "../assets/lds.jpg";
 import lev from "../assets/lev.jpg";
-import grabbit from "../assets/grabbit.PNG";
+import grabbit from "../assets/grabbit.webp";
 import ignited from "../assets/ignited.jpg";
-import openbio from "../assets/openbio.PNG";
+import openbio from "../assets/openbio.webp";
 import bandit from "../assets/bandit.jpg";
 import dhep from "../assets/dhep.jpg";
-import evante from "../assets/evante.png"
-import seren from "../assets/seren.png"
-import hsurv from "../assets/hsurv.png"
-import thomas from "../assets/thomas.png"
+import evante from "../assets/evante.webp"
+import seren from "../assets/seren.webp"
+import hsurv from "../assets/hsurv.webp"
+import thomas from "../assets/thomas.webp"
 
-import koi from "../assets/koi.png";
-import lotv from "../assets/lotv.png"
+import koi from "../assets/koi.webp";
+import lotv from "../assets/lotv.webp"
 import stickers from "../assets/stickers.jpeg"
-import mushrooms from "../assets/mushrooms.png"
-import jelly from "../assets/jelly.png"
+import mushrooms from "../assets/mushrooms.webp"
+import jelly from "../assets/jelly.webp"
 import heads from "../assets/heads.jpeg"
-import headrow from "../assets/headrow.png"
-import headrow2 from "../assets/headrow2.png"
-import headshots from "../assets/headshots.png"
-import dragon from "../assets/dragon.png"
-import boba from "../assets/boba.png"
-import macaw from "../assets/macaw.png"
-import frog from "../assets/frog.png"
+import headrow from "../assets/headrow.webp"
+import headrow2 from "../assets/headrow2.webp"
+import headshots from "../assets/headshots.webp"
+import dragon from "../assets/dragon.webp"
+import boba from "../assets/boba.webp"
+import egg from "../assets/egg.png"
+import jam from "../assets/jam.png"
+import frog from "../assets/frog.webp"
 
-import leaves from "../assets/leaves.png"
-import food from "../assets/food.png"
-import mail from "../assets/mail.png"
-import rails from "../assets/rails.png"
-import gold from "../assets/gold.png"
-import yellow from "../assets/yellow.png"
-import plane from "../assets/plane.png"
-import flower from "../assets/flower.png"
-import droplet from "../assets/droplet.png"
-import mfa from "../assets/mfa.png"
-import berg from "../assets/berg.png"
-import waterfall from "../assets/waterfall.png"
-import fence from "../assets/fence.png"
-import art from "../assets/art.png"
+import leaves from "../assets/leaves.webp"
+import food from "../assets/food.webp"
+import mail from "../assets/mail.webp"
+import rails from "../assets/rails.webp"
+import gold from "../assets/gold.webp"
+import yellow from "../assets/yellow.webp"
+import plane from "../assets/plane.webp"
+import flower from "../assets/flower.webp"
+import droplet from "../assets/droplet.webp"
+import mfa from "../assets/mfa.webp"
+import berg from "../assets/berg.webp"
+import waterfall from "../assets/waterfall.webp"
+import fence from "../assets/fence.webp"
+import art from "../assets/art.webp"
 
-import labx from "../assets/labx.png"
-import neuro from "../assets/neuro.png"
-import apes from "../assets/apes.png"
-import mbb from "../assets/mbb.png"
-import linear from "../assets/linear.png"
-import stats from "../assets/stat.png"
-import gov from "../assets/gov.png"
-import econ from "../assets/econ.png"
-import chem from "../assets/chem.png"
+import labx from "../assets/labx.webp"
+import neuro from "../assets/neuro.webp"
+import apes from "../assets/apes.webp"
+import mbb from "../assets/mbb.webp"
+import linear from "../assets/linear.webp"
+import stats from "../assets/stat.webp"
+import gov from "../assets/gov.webp"
+import econ from "../assets/econ.webp"
+import chem from "../assets/chem.webp"
 
 const images = [cabgarden, dog, mailbox, songs, dash, hold, leader, bw, wgs, ai, aaup, greek, donut, fall, hands, datamatch, flyby, polyamory, linked, scroll, selfie, thirty, friendship, hy, pov, train, snow, howto, mario];
 const projects2 = [
@@ -154,7 +155,7 @@ const projects2 = [
     description: "Spearheaded character/logo design for a fictional eco-friendly chocolate brand, winning first prize at the Harvard Marketing Bootcamp’s Case Study competition.",
   },
 ] 
-const images3 = [headrow, koi, stickers, jelly, lotv, dragon, headshots, macaw, boba, mushrooms, heads, frog, headrow2]
+const images3 = [headrow, lotv, koi, stickers, dragon, egg, jam, headshots, headrow2, boba, heads, mushrooms, frog, jelly]
 const images4 = [waterfall, mfa, art, plane, flower, droplet, food, berg, fence, mail, yellow, rails, gold, leaves]
 const images5 = [linear, gov, stats, mbb, chem, neuro, apes, econ]
 
@@ -331,7 +332,7 @@ function Designs() {
               <p className="stat-label">@ HarvardxDesign Conference '26</p>
             </div>
             <div className="photo-stat">
-              <p className="stat-number">9 Featured Pieces</p>
+              <p className="stat-number">14 Featured Pieces</p>
               <p className="stat-label">on Unsplash's Top Feed</p>
             </div>
             <div className="photo-stat">
