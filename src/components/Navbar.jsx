@@ -28,10 +28,8 @@ function Navbar() {
           <li><Link to="/design">Visual Design</Link></li>
           <li><Link to="/about">About Me</Link></li>
           <li>
-            <a  href="https://drive.google.com/file/d/1eju-nxiTRaRhZURQy0B-LE3d0OkLjA3x/view?usp=sharing"
-            target="_blank" rel="noopener noreferrer" >
-            Resumé
-            </a>
+            <a href="/portfolio/VictoriaChen.pdf" target="_blank" rel="noopener noreferrer">
+            Resumé </a>
   </li>
         </ul>
 

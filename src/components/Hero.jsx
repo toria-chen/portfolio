@@ -157,7 +157,7 @@ function Hero() {
             </div>
 
             <h2>
-              I turn stories into whimsical experiences that keep people <span className="colorchangebold">coming back for more</span>.
+              I turn stories into <span className="bold2">whimsical experiences</span> that keep people <span className="colorchangebold">coming back for more</span>.
             </h2>
 
             <div className="hero-buttons">

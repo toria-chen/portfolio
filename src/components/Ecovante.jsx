@@ -9,7 +9,7 @@ function Ecovante() {
           <h2><span className="colorchange">Under Construction! Come back later to see my progress on Ecovante!</span></h2>
         </div>
       <div className="case-back-link">
-        <Link to="/product" className="project-cta">← Back to all projects</Link>
+        <Link to="/casestudies" className="project-cta">← Back to all projects</Link>
       </div>
       </section>
     </>

@@ -15,17 +15,18 @@ import plain from "../assets/plain.webp"
 import busyb from "../assets/busyb.jpeg";
 import classbandit from "../assets/classbandit.png";
 import rf from "../assets/rf.png";
+import ecovante from "../assets/ecovante.webp";
 
 function ProjectsBento() {
   const projects = [
   {
     img: rf,
     name: "Rainforest Connection",
-    designType: "End-to-End Mobile App",
+    designType: "Mobile App",
     industry: "Envirotech",
     description: "An app redesign for a biodiversity nonprofit, centered on an extensive rainforest sound library.",
     link: "/rfcx",
-    size: "large",
+    size: "fullcolumn",
   },
   {
     img: classbandit,
@@ -34,7 +35,7 @@ function ProjectsBento() {
     industry: "EdTech",
     description: "A digital class pet tool helping K-6 educators to build community through social-emotional learning.",
     link: "/bandit",
-    size: "medium",
+    size: "topright",
   },
   {
     img: busyb,
@@ -44,7 +45,16 @@ function ProjectsBento() {
     description: "A plant-themed microproductivity tracker, built using Python, HTML/CSS, and SQLite3.",
     link: "https://github.com/toria-chen/busy.b/blob/main/README.md",
     external: true,
-    size: "flat",
+    size: "bottomright",
+  },
+  {
+    img: ecovante,
+    name: "Ecovante",
+    designType: "Responsive Website",
+    industry: "Sustainability",
+    description: "As the founding and only designer, led UI/UX design, branding, and handoff to front-end development for a website connecting ecotourism travelers with nonprofits around the world.",
+    link: "/eco",
+    size: "big",
   },
 ];
 
@@ -62,31 +72,38 @@ function ProjectsBento() {
           <TileWrapper
             key={i}
             {...linkProps}
-            className={`bento-tile bento-${project.size} ${hoveredIndex === i ? 'hovered' : ''}`}
-            onMouseEnter={() => setHoveredIndex(i)}
-            onMouseLeave={() => setHoveredIndex(null)}
+            className={`bento-tile bento-${project.size}`}
           >
             <div className="bento-tile-inner">
-  <div className="bento-img-wrap">
-    <img src={project.img} alt={project.name} className="bento-img" />
-    <div className="bento-overlay">
-      <p className="bento-description">{project.description}</p>
-      <span className="bento-readmore">Read more →</span>
-    </div>
-  </div>
+              <div className="bento-img-wrap">
+                <img src={project.img} alt={project.name} className="bento-img" />
+                <div className="bento-overlay">
+                  <p className="bento-description">{project.description}</p>
+                  <span className="bento-readmore">Read more →</span>
+                </div>
+              </div>
 
-  <div className="bento-info-bar">
-  <span className="bento-name-text">{project.name}</span>
-  <div className="bento-badges">
-    <span className="bento-badge">{project.designType}</span>
-    <span className="bento-badge">{project.industry}</span>
-  </div>
-</div>
-</div>
+              <div className="bento-info-bar">
+                <span className="bento-name-text">{project.name}</span>
+                <div className="bento-badges">
+                  <span className="bento-badge">{project.designType}</span>
+                  <span className="bento-badge">{project.industry}</span>
+                </div>
+              </div>
+            </div>
           </TileWrapper>
         );
       })}
+
+      <Link to="/casestudies" className="bento-tile bento-small bento-cta">
+  <div className="bento-cta-inner">
+    <img src={four} alt="" className="bento-cta-icon" />
+    <div className="bento-cta-copy">
+      <span className="bento-cta-text">Explore all case studies →</span>
     </div>
+  </div>
+</Link>
+</div>
   );
 }
 
@@ -292,9 +309,8 @@ function Projects() {
 
         <div className="process-cta-stack">
           <h2><span className="colorchangebold">Explore what I've been creating!</span></h2>
-          <div className="hero-card projects-card">
+          <div className="bento-card">
                     <ProjectsBento />
-                    <Link to="/casestudies" className="see-all-link-top">Explore all case studies →</Link>
                   </div>
 </div>
 
