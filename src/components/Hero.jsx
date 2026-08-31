@@ -3,82 +3,110 @@ import one from '../assets/1.webp';
 import two from '../assets/2.webp';
 import three from '../assets/3.webp';
 import four from '../assets/4.webp';
-import headshot from '../assets/headshot.webp';
 import { Link } from 'react-router-dom';
-import busyb from "../assets/busyb.jpeg";
-import classbandit from "../assets/classbandit.png";
-import rf from "../assets/rf.png";
+import flat from "../assets/flat.png";
 
-function ProjectsBento() {
-  const projects = [
-  {
-    img: rf,
-    name: "Rainforest Connection",
-    designType: "End-to-End Mobile App",
-    industry: "Envirotech",
-    description: "An app redesign for a biodiversity nonprofit, centered on an extensive rainforest sound library.",
-    link: "/rfcx",
-    size: "large",
-  },
-  {
-    img: classbandit,
-    name: "ClassBandit",
-    designType: "Illustration + Branding",
-    industry: "EdTech",
-    description: "A digital class pet tool helping K-6 educators to build community through social-emotional learning.",
-    link: "/bandit",
-    size: "medium",
-  },
-  {
-    img: busyb,
-    name: "busy.b",
-    designType: "Full-Stack Build",
-    industry: "Productivity",
-    description: "A plant-themed microproductivity tracker, built using Python, HTML/CSS, and SQLite3.",
-    link: "https://github.com/toria-chen/busy.b/blob/main/README.md",
-    external: true,
-    size: "flat",
-  },
+const messages = [
+  { sender: "bot", text: "Hey, nice to meet you! I'm Victoria, a product designer passionate about storytelling and social good!" },
+  { sender: "user", text: "Cool! What have you been working on?" },
+  { sender: "bot", text: "So many things! What would you like to explore first?" },
 ];
 
-  const [hoveredIndex, setHoveredIndex] = useState(null);
+function ChatHero() {
+  const [visibleCount, setVisibleCount] = useState(0);
+  const [typingSender, setTypingSender] = useState(null);
+  const [showReplies, setShowReplies] = useState(false);
+  const timeoutRef = useRef(null);
+
+  useEffect(() => {
+  const timeouts = [];
+  let cumulative = 1200;
+
+  messages.forEach((msg, idx) => {
+    if (msg.sender === "bot") {
+      timeouts.push(setTimeout(() => setTypingSender("bot"), cumulative));
+      cumulative += 1000;
+      timeouts.push(
+        setTimeout(() => {
+          setTypingSender(null);
+          setVisibleCount(idx + 1);
+        }, cumulative)
+      );
+      cumulative += 1400;
+    } else {
+      timeouts.push(setTimeout(() => setVisibleCount(idx + 1), cumulative));
+      cumulative += 1800;
+    }
+  });
+
+  timeouts.push(setTimeout(() => setShowReplies(true), cumulative + 300));
+
+  return () => timeouts.forEach(clearTimeout);
+}, []);
+
+  const visibleMessages = messages.slice(0, visibleCount);
 
   return (
-    <div className="bento-grid">
-      {projects.map((project, i) => {
-        const TileWrapper = project.external ? 'a' : Link;
-        const linkProps = project.external
-          ? { href: project.link, target: "_blank", rel: "noopener noreferrer" }
-          : { to: project.link };
+    <div className="chat-thread">
+      {visibleMessages.map((msg, i) => {
+        const showLabel = msg.sender === "bot"
+          ? i === 0
+          : i === 0 || visibleMessages[i - 1].sender !== msg.sender;
+        const isLastInGroup =
+          i === visibleMessages.length - 1 || visibleMessages[i + 1]?.sender !== msg.sender;
 
         return (
-          <TileWrapper
-            key={i}
-            {...linkProps}
-            className={`bento-tile bento-${project.size} ${hoveredIndex === i ? 'hovered' : ''}`}
-            onMouseEnter={() => setHoveredIndex(i)}
-            onMouseLeave={() => setHoveredIndex(null)}
-          >
-            <div className="bento-tile-inner">
-  <div className="bento-img-wrap">
-    <img src={project.img} alt={project.name} className="bento-img" />
-    <div className="bento-overlay">
-      <p className="bento-description">{project.description}</p>
-      <span className="bento-readmore">Read more →</span>
-    </div>
-  </div>
-
-  <div className="bento-info-bar">
-  <span className="bento-name-text">{project.name}</span>
-  <div className="bento-badges">
-    <span className="bento-badge">{project.designType}</span>
-    <span className="bento-badge">{project.industry}</span>
-  </div>
-</div>
-</div>
-          </TileWrapper>
+          <div key={i} className={`chat-row chat-row-${msg.sender}`}>
+            {showLabel && (
+              <span className="chat-sender-label">
+                {msg.sender === "bot" ? "Victoria Chen" : "You"}
+              </span>
+            )}
+            <div className="chat-bubble-line">
+              {msg.sender === "bot" && (
+                <img
+                  src={flat}
+                  alt=""
+                  className="chat-avatar"
+                  style={{ visibility: isLastInGroup ? "visible" : "hidden" }}
+                />
+              )}
+              <div className={`chat-bubble chat-bubble-${msg.sender} chat-slide-${msg.sender}`}>
+                {msg.text}
+              </div>
+            </div>
+          </div>
         );
       })}
+
+      {typingSender === "bot" && (
+        <div className="chat-row chat-row-bot">
+          <div className="chat-bubble-line">
+            <img src={flat} alt="" className="chat-avatar" />
+            <div className="chat-bubble chat-bubble-bot chat-typing">
+              <span className="chat-dot"></span>
+              <span className="chat-dot"></span>
+              <span className="chat-dot"></span>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {showReplies && (
+        <div className="chat-quick-replies">
+          <Link to="/casestudies" className="chat-reply-pill">i. Case Studies</Link>
+          <Link to="/about" className="chat-reply-pill">ii. About Me</Link>
+          <a href="#more-about-me"
+          className="chat-reply-pill"
+            onClick={(e) => {
+            e.preventDefault();
+            document.getElementById("more-about-me")?.scrollIntoView({ behavior: "smooth", block: "start" });
+          }}
+        >
+          iii. A bit of both!
+        </a>
+        </div>
+      )}
     </div>
   );
 }
@@ -101,7 +129,6 @@ function Hero() {
     );
 
     observerMore.observe(moreAbout);
-
     return () => observerMore.disconnect();
   }, []);
 
@@ -110,52 +137,48 @@ function Hero() {
       <section className="hero">
         <div className="hero-cards-row">
 
-          {/* LEFT CARD — info */}
+          {/* LEFT CARD — info (unchanged) */}
           <div className="hero-card info-card">
             <div className="headshot-row">
-              <img src={headshot} alt="Victoria Chen" className="headshot" />
               <div className="headshot-credentials">
-                <p className="name-line"><span className="squiggle">Victoria Chen</span></p>
-                <p className="credentials-line">Product Design ✧ Harvard '28</p>
                 <div className="status-pill">
-                <span className="status-dot"></span>
-                Seeking Summer '27 Internships!
+                  <span className="status-dot"></span>
+                  Seeking Summer '27 Internships!
                 </div>
+                <div className="hero-plants">
+              <img src={one} alt="Plant stage 1" />
+              <img src={two} alt="Plant stage 2" />
+              <img src={three} alt="Plant stage 3" />
+              <img src={four} alt="Plant stage 4" />
+            </div>
+                <p className="name-line"><span className="bold">Hi! I'm Victoria Chen.</span></p>
+                <p className="credentials-line">UX/Product Designer ✧ Psych + Stats @Harvard</p>
               </div>
             </div>
 
             <h2>
-              Hi! I'm a <span className="colorchangebold">psychology-driven designer</span> rewriting stories into whimsical experiences that keep people <span className="new">coming back for more</span>.
+              I turn stories into whimsical experiences that keep people <span className="colorchangebold">coming back for more</span>.
             </h2>
 
             <div className="hero-buttons">
               <a href="https://drive.google.com/file/d/1eju-nxiTRaRhZURQy0B-LE3d0OkLjA3x/view?usp=sharing" target="_blank" rel="noopener noreferrer">
                 <button className="hero-button">Resumé</button>
               </a>
-
               <a href="https://www.linkedin.com/in/2028victoria-chen/" target="_blank" rel="noopener noreferrer">
                 <button className="hero-button">LinkedIn</button>
               </a>
             </div>
-
-            <div className="hero-plants">
-              <img src={one} alt="Plant stage 1" />
-              <img src={two} alt="Plant stage 2" />
-              <img src={three} alt="Plant stage 3" />
-              <img src={four} alt="Plant stage 4" />
-            </div>
           </div>
 
-          {/* projects */}
-          <div className="hero-card projects-card">
-            <ProjectsBento />
-            <Link to="/casestudies" className="see-all-link-top">Explore all case studies →</Link>
+          {/* RIGHT CARD — chat (replaces bento) */}
+          <div className="hero-card chat-card">
+            <ChatHero />
           </div>
 
-          </div>
+        </div>
       </section>
 
-      <section className="more-about-me">
+      <section className="more-about-me" id="more-about-me">
         <div className="wavy-line-container">
           <svg className="wavy-line" viewBox="0 0 1200 50" preserveAspectRatio="none">
             <path

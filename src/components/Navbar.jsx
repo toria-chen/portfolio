@@ -24,10 +24,15 @@ function Navbar() {
         </div>
 
         <ul className="nav-links">
-          <li><Link to="/">Home</Link></li>
           <li><Link to="/casestudies">Case Studies</Link></li>
           <li><Link to="/design">Visual Design</Link></li>
-          <li><Link to="/about">About</Link></li>
+          <li><Link to="/about">About Me</Link></li>
+          <li>
+            <a  href="https://drive.google.com/file/d/1eju-nxiTRaRhZURQy0B-LE3d0OkLjA3x/view?usp=sharing"
+            target="_blank" rel="noopener noreferrer" >
+            Resumé
+            </a>
+  </li>
         </ul>
 
         <button

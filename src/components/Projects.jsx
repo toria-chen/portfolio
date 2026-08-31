@@ -4,8 +4,6 @@ import one from '../assets/1.webp';
 import two from '../assets/2.webp';
 import three from '../assets/3.webp';
 import four from '../assets/4.webp';
-import cases from "../assets/case studies.webp"
-import visuals from "../assets/visuals.webp"
 
 import stats from "../assets/stats.webp"
 import psych from "../assets/psych.webp"
@@ -13,6 +11,84 @@ import socialgood from "../assets/socialgood.webp"
 import arts from "../assets/arts.webp"
 import words from "../assets/words.webp"
 import plain from "../assets/plain.webp"
+
+import busyb from "../assets/busyb.jpeg";
+import classbandit from "../assets/classbandit.png";
+import rf from "../assets/rf.png";
+
+function ProjectsBento() {
+  const projects = [
+  {
+    img: rf,
+    name: "Rainforest Connection",
+    designType: "End-to-End Mobile App",
+    industry: "Envirotech",
+    description: "An app redesign for a biodiversity nonprofit, centered on an extensive rainforest sound library.",
+    link: "/rfcx",
+    size: "large",
+  },
+  {
+    img: classbandit,
+    name: "ClassBandit",
+    designType: "Illustration + Branding",
+    industry: "EdTech",
+    description: "A digital class pet tool helping K-6 educators to build community through social-emotional learning.",
+    link: "/bandit",
+    size: "medium",
+  },
+  {
+    img: busyb,
+    name: "busy.b",
+    designType: "Full-Stack Build",
+    industry: "Productivity",
+    description: "A plant-themed microproductivity tracker, built using Python, HTML/CSS, and SQLite3.",
+    link: "https://github.com/toria-chen/busy.b/blob/main/README.md",
+    external: true,
+    size: "flat",
+  },
+];
+
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+
+  return (
+    <div className="bento-grid">
+      {projects.map((project, i) => {
+        const TileWrapper = project.external ? 'a' : Link;
+        const linkProps = project.external
+          ? { href: project.link, target: "_blank", rel: "noopener noreferrer" }
+          : { to: project.link };
+
+        return (
+          <TileWrapper
+            key={i}
+            {...linkProps}
+            className={`bento-tile bento-${project.size} ${hoveredIndex === i ? 'hovered' : ''}`}
+            onMouseEnter={() => setHoveredIndex(i)}
+            onMouseLeave={() => setHoveredIndex(null)}
+          >
+            <div className="bento-tile-inner">
+  <div className="bento-img-wrap">
+    <img src={project.img} alt={project.name} className="bento-img" />
+    <div className="bento-overlay">
+      <p className="bento-description">{project.description}</p>
+      <span className="bento-readmore">Read more →</span>
+    </div>
+  </div>
+
+  <div className="bento-info-bar">
+  <span className="bento-name-text">{project.name}</span>
+  <div className="bento-badges">
+    <span className="bento-badge">{project.designType}</span>
+    <span className="bento-badge">{project.industry}</span>
+  </div>
+</div>
+</div>
+          </TileWrapper>
+        );
+      })}
+    </div>
+  );
+}
 
 const skillColumns = [
   {
@@ -213,21 +289,13 @@ function Projects() {
           <span>↓</span>
         </div>
 
+
         <div className="process-cta-stack">
           <h2><span className="colorchangebold">Explore what I've been creating!</span></h2>
-  <div className="cta-row">
-    <img src={cases} alt="Case studies preview" className="cta-collage-img" />
-    <Link to="/casestudies">
-      <button className="hero-button">Check out my case studies!</button>
-    </Link>
-  </div>
-
-  <div className="cta-row cta-row-reverse">
-    <Link to="/design">
-      <button className="hero-button">Explore my visual designs!</button>
-    </Link>
-    <img src={visuals} alt="Visual design preview" className="cta-collage-img" />
-  </div>
+          <div className="hero-card projects-card">
+                    <ProjectsBento />
+                    <Link to="/casestudies" className="see-all-link-top">Explore all case studies →</Link>
+                  </div>
 </div>
 
       <section className="marquee-section">
