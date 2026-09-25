@@ -134,6 +134,7 @@ p {
 }
 
 .navbar {
+  display: block;
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -141,13 +142,14 @@ p {
   align-items: center;
   background-color: #fff6f6;
   width: 100%;
+  border-bottom: 3px dotted #d47291;
 }
 
 .navbar-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 8px 50px 4px 30px;
+  padding: 4px 50px 2px 30px;
 }
 
 .hamburger {
@@ -719,7 +721,7 @@ p {
   50% { opacity: 0; }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1100px) {
   .hats-display {
     flex-direction: column;
     gap: 0px;
@@ -741,6 +743,10 @@ p {
   .hat-tab-button {
     padding: 6px 14px;
     font-size: 0.85rem;
+  }
+
+   .hats-description-box {
+    margin: 0px;
   }
 }
 
@@ -1711,11 +1717,18 @@ section {
   }
 }
 
+/* bento grid */
+
 .bento-card {
   background: white;
   border-radius: 24px;
   padding: 0px 36px;
   overflow: hidden;
+  max-width: 1280px;
+   display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
 }
 
 .bento-grid {
@@ -1872,6 +1885,10 @@ section {
   transform: scale(1.02);
 }
 
+.bento-cta-text:hover {
+  color: #ab6464;
+}
+
 .bento-cta-icon {
   width: 80px;
   height: auto;
@@ -1889,10 +1906,44 @@ section {
   font-weight: 700;
   font-size: 1.1rem;
   text-align: center;
+  text-decoration: underline;
   padding: 0 16px;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
+  .bento-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    height: 620px;
+  }
+
+  .bento-fullcolumn {
+    grid-column: 1;
+    grid-row: 1 / 7;
+  }
+
+  .bento-bottomright {
+    grid-column: 1;
+    grid-row: 7 / 11;
+  }
+
+  .bento-big {
+    grid-column: 2;
+    grid-row: 1 / 5;
+  }
+
+  .bento-topright {
+    grid-column: 2;
+    grid-row: 5 / 9;
+  }
+
+  .bento-small {
+    grid-column: 2;
+    grid-row: 9 / 11;
+  }
+}
+
+@media (max-width: 600px) {
   .bento-grid {
     grid-template-columns: 1fr;
     grid-template-rows: none;
@@ -1900,7 +1951,7 @@ section {
     height: auto;
   }
 
-  .bento-big, .bento-small, .bento-topright, .bento-bottomright {
+  .bento-big, .bento-small, .bento-topright, .bento-bottomright, .bento-fullcolumn {
     grid-column: 1;
     grid-row: auto;
   }
